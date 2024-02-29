@@ -9,19 +9,19 @@ module.exports.webhook = async (event) => {
 
   if (typeof body === 'string') {
     try {
-      body = JSON.parse(event)
+      body = JSON.parse(event);
     } catch (err) {
       throw new Error(`Cannot parse event: ${JSON.stringify(event)}`);
     }
   }
 
-  const message = body.message
-  const chat = message.chat
+  const message = body.message;
+  const chat = message.chat;
 
   axios.post(`${BASE_URL}/sendMessage`, {
       text: `Вызывают администратора! #alert
       https://t.me/${chat.username || chat.id}/${message.message_id}
-      \n Сообщение от: \n<b>${JSON.stringify(message.from, null, '\t')}</b>`,
+      \n Сообщение от: \n*${JSON.stringify(message.from, null, '\t')}*`,
       chat_id: adminChatId,
     
   }, {
@@ -34,7 +34,7 @@ module.exports.webhook = async (event) => {
   })
   .catch((err) => {
     throw new Error(`Error on send message to admin chat: ${err.message}`);
-  })
+  });
 
   return {
     statusCode: 200,
