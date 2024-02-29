@@ -1,0 +1,11 @@
+service: aws-lambda-telegram-call-admin-bot
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  region: eu-north-1
+  runtime: nodejs20.x
+
+functions:
+  CallAdmins:
+    handler: index.webhook
