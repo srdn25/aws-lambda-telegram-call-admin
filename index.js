@@ -21,13 +21,13 @@ function createMessage(message) {
 
 module.exports.webhook = async (event) => {
   const BASE_URL = `https://api.telegram.org/bot${token}`;
-  let body = event;
+  let body = event.body;
 
   if (typeof body === 'string') {
     try {
-      body = JSON.parse(event);
+      body = JSON.parse(body);
     } catch (err) {
-      throw new Error(`Cannot parse event: ${JSON.stringify(event)}`);
+      throw new Error(`Cannot parse event: ${JSON.stringify(body)}`);
     }
   }
 
