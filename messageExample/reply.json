@@ -1,0 +1,26 @@
+{
+  "message": {
+    "message_id": 145,
+    "from": {
+      "id": 123,
+      "is_bot": false,
+      "first_name": "Shine",
+      "last_name": "Light"
+    },
+    "chat": {
+      "id": -41566051,
+      "title": "test_bot_group",
+      "type": "group",
+      "all_members_are_administrators": true
+    },
+    "date": 17093131,
+    "text": "/alert@AlertBot",
+    "entities": [
+      {
+        "offset": 0,
+        "length": 21,
+        "type": "bot_command"
+      }
+    ]
+  }
+}

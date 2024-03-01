@@ -33,6 +33,16 @@ module.exports.webhook = async (event) => {
 
   const message = body.message;
 
+  if (!message.text || !message.text.startsWith('/alert')) {
+    const msg = `Wrong call. This is not an alert! ${message.text}`;
+    console.error(msg);
+
+    return {
+      statusCode: 200,
+      body: msg,
+    }
+  }
+
   try {
     const response = await axios.post(`${BASE_URL}/sendMessage`, {
       text: createMessage(message),
